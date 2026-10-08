@@ -38,7 +38,7 @@ module.exports = async (req, res) => {
       id: h.id,
       name: h.name,
       star_rating: h.star_rating,
-      price_per_night: h.price_per_night,
+      price_per_night: h.from_price_per_night ?? h.price_per_night,
       currency: h.currency,
     }));
 

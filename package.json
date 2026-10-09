@@ -1,7 +1,7 @@
 {
   "name": "whatsapp-booking-meta-agent",
   "version": "1.0.0",
-  "description": "Meta Business Agent Reservations Connector backend — search/create/check hotel reservations via Devara Hotels MCP, with synchronous Stripe test-mode payment. Meta's hosted AI agent owns the WhatsApp conversation; this app is a pure REST API.",
+  "description": "Meta Business Agent Reservations Connector backend — search/create/check/cancel hotel reservations via the Kartha Hotels MCP, with synchronous Stripe test-mode payment. Meta's hosted AI agent owns the WhatsApp conversation; this app is a pure REST API.",
   "main": "api/connector/search-hotels.js",
   "scripts": {
     "dev": "vercel dev"

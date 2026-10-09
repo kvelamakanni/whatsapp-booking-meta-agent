@@ -35,21 +35,13 @@ module.exports = async (req, res) => {
     });
 
     if (result.status === 'failed') {
-      // 402 only for a declined payment; a booking that failed after a
-      // (refunded) charge is a server-side problem.
-      res.status(/^Payment failed/.test(result.error) ? 402 : 502).json({ error: result.error });
+      res.status(402).json({ error: result.error });
       return;
     }
 
     res.status(201).json(result);
   } catch (e) {
     console.error('create-reservation error:', e);
-    if (/No (hotel|room) matching/i.test(e.message)) {
-      res.status(404).json({
-        error: 'Hotel or room not found. Use the hotel_id from search_hotels and a room_id from get_hotel_details.',
-      });
-      return;
-    }
     res.status(502).json({ error: e.message });
   }
 };

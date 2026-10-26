@@ -33,6 +33,8 @@ module.exports = async (req, res) => {
       checkOut: check_out,
       guests: guests ? parseInt(guests, 10) : 1,
     });
+    const { phone, ...loggable } = result;
+    console.log('create_payment_link response:', JSON.stringify(loggable));
     res.status(201).json(result);
   } catch (e) {
     console.error('create-payment-link error:', e);
